@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/oneplus/denniz
+DEVICE_PATH := device/oneplus/karen
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
@@ -42,7 +42,7 @@ TARGET_NO_BOOTLOADER := true
 TARGET_BOARD_PLATFORM := mt6893
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := OP515BL1,denniz
+TARGET_OTA_ASSERT_DEVICE := OP557AL1,karen
 
 # Kernel
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2
