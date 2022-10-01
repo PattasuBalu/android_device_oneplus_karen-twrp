@@ -49,4 +49,12 @@ Basic instructions. From there you'll need to research.
 
 1. You should now be able to flash `out/target/product/karen/boot.img`
    1. `cd out/target/product/karen`
-   1. `fastboot flash boot.img`
+   1. `fastboot flash boot boot.img`
+
+### Experimental builds
+
+https://github.com/oneplus-karen-roms/android_device_oneplus_karen-twrp/releases
+
+Find the `.img` files under a releases' assets.
+And flash like normal.
+`fastboot flash boot twrp-boot-xxx.img`
