@@ -19,6 +19,16 @@ TWRP device tree for OnePlus Nord 2T 5G (karen)
 
 ![image](https://fdn2.gsmarena.com/vv/pics/oneplus/oneplus-nord-2t-5g-1.jpg)
 
+### BOARD_USES_RECOVERY_AS_BOOT
+
+Keep in mind, `karen` has NO `recovery` partition.
+Recovery is part of the boot partition, so it takes care of normal boot and recovery.
+
+WIP: currently you can *replace* the boot partition with the below build information, but it **WILL NOT BOOT NORMALLY**.
+To go back to your normal OS, you'll have to flash your stock (/rooted) boot.img.
+
+**SO MAKE SURE YOU HAVE A BACKUP `boot.img`**
+
 ### Building
 
 Basic instructions. From there you'll need to research.
@@ -35,4 +45,8 @@ Basic instructions. From there you'll need to research.
 
 1. Try an `eng` build.
    1. `export ALLOW_MISSING_DEPENDENCIES=true; . build/envsetup.sh; lunch twrp_karen-eng `
-   1. `make -j# recoveryimage` (where # is a number of threads, try matching your CPU cores)
+   1. `make -j# bootimage` (where # is a number of threads, try matching your CPU cores)
+
+1. You should now be able to flash `out/target/product/karen/boot.img`
+   1. `cd out/target/product/karen`
+   1. `fastboot flash boot.img`
