@@ -3,6 +3,7 @@ import /trustonic.rc
 
 on init
     export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw
+    start boot-hal-1-2
 
 on fs
     install_keyring
