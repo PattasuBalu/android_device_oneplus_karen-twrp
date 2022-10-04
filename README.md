@@ -53,8 +53,30 @@ Basic instructions. From there you'll need to research.
 
 ### Experimental builds
 
+#### 1. Flash *just* TWRP
+
 https://github.com/oneplus-karen-roms/android_device_oneplus_karen-twrp/releases
 
 Find the `.img` files under a releases' assets.
-And flash like normal.
-`fastboot flash boot twrp-boot-xxx.img`
+And flash like normal. `fastboot flash boot twrp-boot-xxx.img`
+
+#### 2. Install the ramdisk.
+
+Boot into TWRP, then:
+- `adb push twrp-boot-xxx.img /sdcard/twrp-boot-xxx.img`
+- Install the **Stock** `boot.img` for your OS version. **DO NOT** reboot yet.
+- Install patch the ramdisk from `/sdcard/twrp-boot-xxx.img`. **DO NOT** reboot yet.
+- `adb shell` -> `dd if=/dev/block/by-name/boot of=/sdcard/boot-plus-twrp.img` (You will need this for rooting).
+- `adb reboot`
+
+#### 3. Rooting
+
+Booting the phone normally:
+- Open the Magisk app.
+- Choose `/sdcard/boot-plus-twrp.img` to be patched.
+- Note the filename you get in the log `/sdcard/Download/magisk_patched-XXXXXXX.img`
+- `adb reboot recovery`
+
+When rebooted to TWRP:
+- Install the file you got `/sdcard/Download/magisk_patched-XXXXXXX.img` to Boot.
+- Reboot! You're done!
