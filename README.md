@@ -63,8 +63,9 @@ And flash like normal. `fastboot flash boot twrp-boot-xxx.img`
 #### 2. Install the ramdisk.
 
 Boot into TWRP, then:
+- `adb push stock-boot.img /sdcard/stock-boot.img` (get this from an official OTA file).
 - `adb push twrp-boot-xxx.img /sdcard/twrp-boot-xxx.img`
-- Install the **Stock** `boot.img` for your OS version. **DO NOT** reboot yet.
+- Install the **Stock** `stock-boot.img` for your OS version. **DO NOT** reboot yet.
 - Install patch the ramdisk from `/sdcard/twrp-boot-xxx.img`. **DO NOT** reboot yet.
 - `adb shell` -> `dd if=/dev/block/by-name/boot of=/sdcard/boot-plus-twrp.img` (You will need this for rooting).
 - `adb reboot`
