@@ -69,6 +69,7 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 BOARD_KERNEL_IMAGE_NAME := kernel
 
 # AVB
+# TODO: What about the system_ext partition?
 BOARD_AVB_ENABLE := true
 BOARD_AVB_VBMETA_SYSTEM := system product
 BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
@@ -80,12 +81,6 @@ BOARD_AVB_VBMETA_VENDOR_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
 BOARD_AVB_VBMETA_VENDOR_ALGORITHM := SHA256_RSA2048
 BOARD_AVB_VBMETA_VENDOR_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_VBMETA_VENDOR_ROLLBACK_INDEX_LOCATION := 2
-
-# TODO: We don't have a recovery partition, so no avb either?
-# BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
-# BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA2048
-# BOARD_AVB_RECOVERY_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
-# BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 3
 
 # Encryption
 PLATFORM_SECURITY_PATCH := 2099-12-31
@@ -127,7 +122,6 @@ TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 # Recovery
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/fstab.$(TARGET_BOARD_PLATFORM)
 
 # Copy fstab to ensure the first stage boot mounts everything we need.
 # See https://source.android.com/docs/core/architecture/kernel/mounting-partitions-early#fstab-ramdisk
