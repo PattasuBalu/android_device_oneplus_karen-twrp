@@ -19,11 +19,11 @@
 /dev/block/by-name/protect2                      /protect_s            ext4    noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc    wait,check,formattable,backup
 
 # Core Partitions (Dynamic Partitions)
-system                                           /system               ext4    ro                                                          wait,slotselect,avb=vbmeta_system,logical,first_stage_mount,avb_keys=/avb/q-gsi.avbpubkey:/avb/r-gsi.avbpubkey:/avb/s-gsi.avbpubkey
-vendor                                           /vendor               ext4    ro                                                          wait,slotselect,avb,logical,first_stage_mount
-product                                          /product              ext4    ro                                                          wait,slotselect,avb,logical,first_stage_mount
-system_ext                                       /system_ext           ext4    ro                                                          wait,slotselect,avb,logical,first_stage_mount
-odm                                              /odm                  ext4    ro                                                          wait,slotselect,logical,first_stage_mount,nofail
+system                                           /system               erofs   ro                                                          wait,slotselect,avb=vbmeta_system,logical,first_stage_mount,avb_keys=/avb/q-gsi.avbpubkey:/avb/r-gsi.avbpubkey:/avb/s-gsi.avbpubkey
+vendor                                           /vendor               erofs   ro                                                          wait,slotselect,avb,logical,first_stage_mount
+product                                          /product              ext4    ro,barrier=1                                                wait,slotselect,avb,logical,first_stage_mount
+system_ext                                       /system_ext           erofs   ro                                                          wait,slotselect,avb,logical,first_stage_mount
+odm                                              /odm                  erofs   ro                                                          wait,slotselect,logical,first_stage_mount,nofail
 
 # Core Partitions
 /dev/block/by-name/dtbo                          /dtbo                 emmc    defaults                                                    slotselect,first_stage_mount,nofail,backup
@@ -80,16 +80,16 @@ odm                                              /odm                  ext4    r
 /dev/block/by-name/sspm                          /sspm                 emmc    defaults                                                    defaults,slotselect,backup
 
 # OnePlus Vendor Partitions (Dynamic Partitions)
-my_product                                       /my_product           ext4    ro,barrier=1                                                wait,slotselect,logical,first_stage_mount,nofail
-my_engineering                                   /my_engineering       ext4    ro,barrier=1                                                wait,slotselect,logical,first_stage_mount,nofail
-my_company                                       /my_company           ext4    ro,barrier=1                                                wait,slotselect,logical,first_stage_mount,nofail
-my_carrier                                       /my_carrier           ext4    ro,barrier=1                                                wait,slotselect,logical,first_stage_mount,nofail
-my_region                                        /my_region            ext4    ro,barrier=1                                                wait,slotselect,logical,first_stage_mount,nofail
-my_heytap                                        /my_heytap            ext4    ro,barrier=1                                                wait,slotselect,logical,first_stage_mount,nofail
-my_stock                                         /my_stock             ext4    ro,barrier=1                                                wait,slotselect,logical,first_stage_mount,nofail
-my_preload                                       /my_preload           ext4    ro,barrier=1                                                wait,slotselect,logical,first_stage_mount,nofail
-my_bigball                                       /my_bigball           ext4    ro,barrier=1                                                wait,slotselect,logical,first_stage_mount,nofail
-my_manifest                                      /my_manifest          ext4    ro,barrier=1                                                wait,slotselect,logical,first_stage_mount,nofail
+my_product                                       /my_product           erofs   ro                                                wait,slotselect,logical,first_stage_mount,nofail
+my_engineering                                   /my_engineering       erofs   ro                                                wait,slotselect,logical,first_stage_mount,nofail
+my_company                                       /my_company           erofs   ro                                                wait,slotselect,logical,first_stage_mount,nofail
+my_carrier                                       /my_carrier           erofs   ro                                                wait,slotselect,logical,first_stage_mount,nofail
+my_region                                        /my_region            erofs   ro                                                wait,slotselect,logical,first_stage_mount,nofail
+my_heytap                                        /my_heytap            erofs   ro                                                wait,slotselect,logical,first_stage_mount,nofail
+my_stock                                         /my_stock             erofs   ro                                                wait,slotselect,logical,first_stage_mount,nofail
+my_preload                                       /my_preload           erofs   ro                                                wait,slotselect,logical,first_stage_mount,nofail
+my_bigball                                       /my_bigball           erofs   ro                                                wait,slotselect,logical,first_stage_mount,nofail
+my_manifest                                      /my_manifest          erofs   ro                                                wait,slotselect,logical,first_stage_mount,nofail
 
 # External-Devices (OTG)
 /devices/platform/usb_xhci*                      auto                  auto    defaults                                                    voldmanaged=usbotg:auto
