@@ -89,6 +89,7 @@ VENDOR_SECURITY_PATCH := 2099-12-31
 
 # Metadata
 BOARD_USES_METADATA_PARTITION := true
+BOARD_ROOT_EXTRA_FOLDERS += metadata
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
@@ -98,7 +99,7 @@ BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
 BOARD_SUPER_PARTITION_SIZE := 12348030976
 BOARD_SUPER_PARTITION_GROUPS := main
 BOARD_MAIN_SIZE := 12345933824
-#TODO: als the my_* partitions are also in the "main" group, but not supported in this variable.
+#TODO: all the my_* partitions are also in the "main" group, but not supported in this variable.
 BOARD_MAIN_PARTITION_LIST := vendor system system_ext product odm
 
 
