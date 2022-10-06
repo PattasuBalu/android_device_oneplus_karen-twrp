@@ -27,9 +27,9 @@ odm                                              /odm                  ext4    r
 
 # Core Partitions
 /dev/block/by-name/dtbo                          /dtbo                 emmc    defaults                                                    slotselect,first_stage_mount,nofail,backup
-/dev/block/by-name/metadata                      /metadata             ext4    noatime,nosuid,nodev,discard                                wait,check,formattable,first_stage_mount
+/dev/block/by-name/metadata                      /metadata             ext4    noatime,nosuid,nodev,discard,sync                           wait,check,formattable,first_stage_mount,backup
 /dev/block/by-name/persist                       /persist              ext4    noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc    wait,check,formattable,backup
-/dev/block/by-name/persist                       /persist_image        emmc    defaults                                                    wait,check,backup,flashimg
+/dev/block/by-name/persist                       /persist_image        emmc    defaults                                                    wait,backup,flashimg
 
 # Secure Boot / Trusted Zone / AVB
 /dev/block/by-name/frp                           /frp                  emmc    defaults                                                    defaults,backup
