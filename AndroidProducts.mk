@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/twrp_karen.mk
+    $(LOCAL_DIR)/twrp_Newcastle.mk
