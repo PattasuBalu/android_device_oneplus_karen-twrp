@@ -5,7 +5,7 @@ TWRP device tree for OnePlus Nord 2T 5G (karen)
 | -----------------------:|:------------------------------------------------------------------------------------------------------------------------------ |
 | Codename                | `karen`                                                                                                                        |
 | Device name             | `OP557AL1` (OnePlus Nord 2T 5G)                                                                                                |
-| Model names             | `CPH2401`                                                                         |
+| Model names             | `CPH2399` "EU" global model<br/>`CPH2401` India model                                                                          |
 | CPU                     | Octa-core                                                                                                                      |
 | Chipset                 | MediaTek MT6893 Dimensity 1300 5G (6 nm) (MT6893Z_Z/CZA)                                                                       |
 | GPU                     | Mali-G77 MC9                                                                                                                   |
